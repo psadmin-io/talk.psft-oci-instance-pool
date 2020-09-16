@@ -29,6 +29,24 @@ This is the title slide
     1. Custom Image
 
 ---
+class: center, middle, title
+# Title
+---
+class: center, middle, black
+# Black
+---
+class: center, middle, white
+# White
+---
 class: center, middle, gray
-
-# DEMO
+# Gray
+---
+# Bullets
+* Item
+* Item
+* Item
+---
+# Numbers
+1. Item
+1. Item
+1. Item
