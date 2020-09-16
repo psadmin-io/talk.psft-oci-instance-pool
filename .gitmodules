@@ -1,6 +1,6 @@
 [submodule "talk.template"]
 	path = talk.template
 	url = https://github.com/psadmin-io/talk.template.git
-	branch = your-branch
+	branch = develop
 [submodule "Submod"]
 	branch = develop
