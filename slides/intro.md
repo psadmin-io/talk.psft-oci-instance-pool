@@ -6,8 +6,6 @@ Kyle Benson
 
 ![psadmin.io](images/psadmin_io_white.png)
 
-Session ID: **101340**
-
 ---
 
 # Agenda
