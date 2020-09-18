@@ -1,8 +1,6 @@
 
 # Thank you!
 
-**Session ID** 101340
-
 **Slides** [wiki.psadmin.io/talk.psft-oci-instance-pool](https://wiki.psadmin.io/talk.psft-oci-instance-pool)
 
 **Kyle Benson**
