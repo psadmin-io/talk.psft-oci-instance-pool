@@ -15,10 +15,10 @@ Session ID: **101340**
 1. Introduction
 1. OCI Instance Pool
 1. Domain Clustering 
-1. Approaches to Auto Provisioning
-    1. Straight DPK
-    1. Shared Middleware
+1. Automated Provisioning
     1. Custom Image
+    1. Shared Middleware
+    1. DPK Archives
 1. Q&A
 
 ---

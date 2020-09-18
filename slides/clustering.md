@@ -1,47 +1,6 @@
-class: center, middle, blue
+class: middle, center, blue
 
-# OCI Instance Pool
-
----
-
-# OCI Instance Pool
-
-* Create and manage multiple compute instances that share the same configuration. 
-* Ability to scale instance count and attach to a Load Balancer. 
-* Multiple scaling methods:
-    * Schedule
-    * Metric based rules
-    * Script
-    * OCI Console
-
-???
-
-* Adjusting the instance count will create or terminate instances automatically. 
-* Pool is attached to a load balancer, the instances are automatically added or removed
-* Would be great in the PeopleSoft space
-    * load can vary day-to-day
-    * Think “timesheet day”
-    * open enrollment
-    * course registration
-
----
-
-# What is needed?
-
-1. Load Balancer
-???
-Create in OCI for instance pool automation to work
---
-1. Instance Image
-???
-Custom or platform image, depending on auto prov. scripts (more later)
---
-1. Automated Provisioning 
-???
-* DPK(puppet) 
-* cloud-init scripts
-    * Advanced Options > Mgmt > Initialization Script
-    * Terraform - instance user_data
+# Domain Clustering 
 
 ---
 
@@ -162,37 +121,3 @@ Quick Poll - How familiar are you with clustering? What type do you use? TODO
 ## App
 
 * Disable JOLT compression 
-
----
-class: center, middle, blue
-
-# Approaches to Auto Provisioning
-
----
-
-Talk about it
-
----
-class: center, middle, gray
-
-# Demo
-
----
-class: center, middle, white
-
-# Custom Image
-
----
-class: center, middle, white
-
-# Straight DPK
-
----
-class: center, middle, white
-
-# Shared Middleware
-
----
-class: center, middle, white
-
-# Custom Image
