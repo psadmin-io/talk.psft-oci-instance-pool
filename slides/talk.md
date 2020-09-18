@@ -1,0 +1,145 @@
+class: center, middle, blue
+
+---
+
+# Domain Clustering 
+
+## What?
+
+* Web domains (PIA)
+* App domains
+* ~~Batch domains~~
+
+???
+
+* Talking about midtier, specifically web and app
+* PRCS can have multiple, but usually set hard at N domains
+* Database is singular, HA through RAC or other measures
+
+---
+
+# Domain Clustering 
+
+## Why?
+
+* Load Balancing
+* High Availability
+
+???
+
+* Spread load to multiple domains
+* Ability to failover if a domain goes bad
+
+---
+
+# Domain Clustering 
+
+## How?
+
+* Web behind a Load Balancer
+    * F5, a10, etc
+* Web connects to App via JOLT
+    * `configuration.properties`
+        * `psserver=server01:9000, server02:9000`
+
+???
+
+* Multiple web servers placed behind a load balancer
+* App connection string set in PIA site `configuration.properties`
+* Can be load balanced, failover
+
+---
+class: center, middle, white
+
+# Approaches to Clustering
+
+???
+
+Quick Poll - How familiar are you with clustering? What type do you use? TODO
+
+---
+
+# Web->Multi App
+
+.center[`webServer01 - psserver=appServer01:9000, appServer02:9000`]
+.center[`webServer02 - psserver=appServer01:9000, appServer02:9000`]
+.center[![psadmin.io](images/cluster-multi.png)]
+
+???
+
+---
+
+# Web->Single App, w/ Failover
+
+.center[`webServer01 - psserver=appServer01:9000{appServer02:9000}`]
+.center[`webServer02 - psserver=appServer02:9000{appServer01:9000}`]
+.center[![psadmin.io](images/cluster-failover.png)]
+
+???
+
+---
+
+# Web->Single App
+
+.center[`webServer01 - psserver=appServer01:9000`]
+.center[`webServer02 - psserver=appServer02:9000`]
+.center[![psadmin.io](images/cluster-single.png)]
+
+???
+
+---
+
+# Web/App
+
+.center[`webServer01 - psserver=localhost:9000`]
+.center[`webServer02 - psserver=localhost:9000`]
+.center[![psadmin.io](images/cluster-webapp.png)]
+
+???
+
+---
+
+# Web/App Considerations
+
+1. TODO
+
+???
+
+---
+class: center, middle, blue
+
+# OCI Instance Pool
+
+---
+class: center, middle, blue
+
+# Approaches to Provisioning
+
+---
+
+Talk about it
+
+---
+class: center, middle, gray
+
+# Demo
+
+---
+class: center, middle, white
+
+# Custom Image
+
+---
+class: center, middle, white
+
+# Straight DPK
+
+---
+class: center, middle, white
+
+# Shared Middleware
+
+---
+class: center, middle, white
+
+# Custom Image

@@ -1,52 +1,37 @@
-class: center, middle
-
-![Reconnect](images/reconnect.png)
+class: center, middle, title
 
 # Taking PeopleSoft Swimming in an OCI Instance Pool
 
 Kyle Benson
 
-![psadmin.io](images/psadmin_io.png)
+![psadmin.io](images/psadmin_io_white.png)
 
 Session ID: **101340**
-
-https://wiki.psadmin.io/talk.psft-oci-instance-pool
-
-???
-
-This is the title slide
 
 ---
 
 # Agenda
 
 1. Introduction
-1. PeopleSoft Domain Clustering 
+1. Domain Clustering 
 1. OCI Instance Pool
-1. Three Approaches to Instance Provisioning
+1. Approaches to Provisioning
     1. Straight DPK
     1. Shared Middleware
     1. Custom Image
+1. Q&A
 
 ---
-class: center, middle, title
-# Title
+
+# Kyle Benson
+
+* PeopleSoft Architect
+* Oracle Cloud Infrastructure Architect
+* [Oracle ACE](https://psadmin.io/ace-kyle)
+* [Oracle Certified](https://www.youracclaim.com/users/kyle-benson/badges)
+* 13+ years using PeopleSoft and Oracle
+
 ---
-class: center, middle, black
-# Black
----
-class: center, middle, white
-# White
----
-class: center, middle, gray
-# Gray
----
-# Bullets
-* Item
-* Item
-* Item
----
-# Numbers
-1. Item
-1. Item
-1. Item
+class: center, middle, no-padding
+
+.ace-image[![ACE Program](images/ace.png)]
