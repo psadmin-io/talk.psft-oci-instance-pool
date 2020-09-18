@@ -1,5 +1,48 @@
 class: center, middle, blue
 
+# OCI Instance Pool
+
+---
+
+# OCI Instance Pool
+
+* Create and manage multiple compute instances that share the same configuration. 
+* Ability to scale instance count and attach to a Load Balancer. 
+* Multiple scaling methods:
+    * Schedule
+    * Metric based rules
+    * Script
+    * OCI Console
+
+???
+
+* Adjusting the instance count will create or terminate instances automatically. 
+* Pool is attached to a load balancer, the instances are automatically added or removed
+* Would be great in the PeopleSoft space
+    * load can vary day-to-day
+    * Think “timesheet day”
+    * open enrollment
+    * course registration
+
+---
+
+# What is needed?
+
+1. Load Balancer
+???
+Create in OCI for instance pool automation to work
+--
+1. Instance Image
+???
+Custom or platform image, depending on auto prov. scripts (more later)
+--
+1. Automated Provisioning 
+???
+* DPK(puppet) 
+* cloud-init scripts
+    * Advanced Options > Mgmt > Initialization Script
+    * Terraform - instance user_data
+
 ---
 
 # Domain Clustering 
@@ -89,7 +132,7 @@ Quick Poll - How familiar are you with clustering? What type do you use? TODO
 
 ---
 
-# Web/App
+# Stand-alone Web/App
 
 .center[`webServer01 - psserver=localhost:9000`]
 .center[`webServer02 - psserver=localhost:9000`]
@@ -99,21 +142,31 @@ Quick Poll - How familiar are you with clustering? What type do you use? TODO
 
 ---
 
-# Web/App Considerations
+# Stand-alone Web/App
 
-1. TODO
+.center[`webServer01 - psserver=localhost:9000`]
+.center[`webServer02 - psserver=localhost:9000`]
+.center[![psadmin.io](images/cluster-webapp-n.png)]
 
 ???
 
 ---
-class: center, middle, blue
 
-# OCI Instance Pool
+# Web/App Considerations
+
+## Web
+
+* Set `psserver=localhost:9000`
+* Set `<cookie-name>ENVNAME-PORTAL-PSJSESSIONID</cookie-name>`
+
+## App
+
+* Disable JOLT compression 
 
 ---
 class: center, middle, blue
 
-# Approaches to Provisioning
+# Approaches to Auto Provisioning
 
 ---
 

@@ -13,9 +13,9 @@ Session ID: **101340**
 # Agenda
 
 1. Introduction
-1. Domain Clustering 
 1. OCI Instance Pool
-1. Approaches to Provisioning
+1. Domain Clustering 
+1. Approaches to Auto Provisioning
     1. Straight DPK
     1. Shared Middleware
     1. Custom Image
