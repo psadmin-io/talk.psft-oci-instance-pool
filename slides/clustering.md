@@ -121,3 +121,6 @@ Quick Poll - How familiar are you with clustering? What type do you use? TODO
 ## App
 
 * Disable JOLT compression 
+    * Set maximum permitted value
+        * `[JOLT Listener]\Jolt Compression Threshold=2,147,483,647`
+    * Remove `-c` from JSL section of `psappsrv.ubx`

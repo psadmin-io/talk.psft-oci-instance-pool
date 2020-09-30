@@ -9,6 +9,11 @@ Kyle Benson
 Session ID: **101340**
 
 ---
+class: center, middle, title
+
+![:img swimming, 90%](images/swim.gif)
+
+---
 
 # Agenda
 
@@ -17,8 +22,7 @@ Session ID: **101340**
 1. Domain Clustering 
 1. Automated Provisioning
     1. Custom Image
-    1. Shared Middleware
-    1. DPK Archives
+    1. cloud-init
 1. Q&A
 
 ---
