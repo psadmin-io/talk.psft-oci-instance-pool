@@ -7,16 +7,20 @@ Kyle Benson
 ![psadmin.io](images/psadmin_io_white.png)
 
 ---
+class: center, middle, title
+
+![:img swimming, 90%](images/swim.gif)
+
+---
 
 # Agenda
 
 1. Introduction
 1. OCI Instance Pool
 1. Domain Clustering 
-1. Approaches to Auto Provisioning
-    1. Straight DPK
-    1. Shared Middleware
+1. Automated Provisioning
     1. Custom Image
+    1. cloud-init
 1. Q&A
 
 ---
