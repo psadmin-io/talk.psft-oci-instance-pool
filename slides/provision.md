@@ -16,10 +16,6 @@ To leverage OCI Instance Pools we need some automated provisioning. This is what
 1. Automatically add\remove from Load Balancer
 1. Configure unique values at instance creation
 1. Complete as quickly as possible
-1. Trigger deployments
-    * Manual
-    * Schedule
-    * Metric
 
 ---
 
@@ -80,7 +76,7 @@ $ echo $PS_DOMAIN_NBR
 
 ---
 
-# Custom Image config
+# Custom Image Pool Setup
 
 Create a Custom image with Web/App domains
 
@@ -118,8 +114,7 @@ Add your "domain nbr" logic to an export variables in psadm2's bash profile
 * NOTE: At first "configure", this will convert to a literal
 * Another approach could be to mess with the .ubx file, but this seems easier
 --
-1. Add domain configuration step to start service script 
-    * `$PS_CFG_HOME/appserv/APPDOM/psft-appserver-APPDOM-domain-appdom.sh`
+1. Add configure to `psft-appserver-APPDOM-domain-appdom.sh`
     * `... $APPSRV_PS_HOME/bin/psadmin -c configure -d $APPSRVDOM" ...`
 ???
 * When UBBGEN process runs, it has some specific references to hostname
@@ -128,7 +123,13 @@ Add your "domain nbr" logic to an export variables in psadm2's bash profile
 1. Cleanup `/etc/hosts`
 ???
 * Remove the current hostname from file
+--
+1. Create Custom Image, Template Instance, Instance Configuration, Instance Pool
+???
 * Now ready to create the custom image
+* Create a template instance from the custom image
+* Create instance configuration from template instance
+* Create Pool from configuration
 
 ---
 class: center, middle, gray
@@ -154,13 +155,32 @@ class: center, middle, white
 
 # cloud-init
 
+???
+
+Two main tools with this approach
+
+* cloud-init
+* ioco
+
 ---
 
-# Approach to cloud-init
+# cloud-init
 
-Use `cloud-init` to setup and run DPK install
+Cloud-init is the industry standard multi-distribution method for cross-platform cloud instance initialization.
 
-1. TODO
+* Set in `Advanced Options` in Console
+* Set in `user_data` in Terraform
+* User data options
+   * Cloud Config - `#cloud-config`
+   * Shell Script - `#!/bin/bash`
+   * Includ File - `#include`
+   * Others...
+???
+
+* cloud-config format specific to cloud-init
+* normal shell scripts
+* include file contains a list urls
+    * Each of the URLs will be read, and their content will be passed through
 
 ---
 
@@ -184,6 +204,32 @@ A python utility for common tasks related to administering PeopleSoft in the Clo
 * Get DPK files from CM dpk files repo, then deploy a midtier setup
 
 ---
+
+# cloud-init Pool Setup
+
+Use `cloud-init` to setup and run DPK install
+
+1. Determine what is needed but not in image
+--
+    * Dynamic config
+--
+    * Packages not included in platform images
+--
+    * Package updates
+--
+1. Determine how to leverage DPK
+--
+    * Standard DPK bootstrap, `psft_customization.yaml`
+--
+    * DPK helper scripts(`ioco`) and modules(`psadminio-io_portalwar`)
+--
+1. Pick an approach to `cloud-init` `user_data` and write script
+--
+1. Create a template instance that includes the `cloud-init` script
+--
+1. Create Instance Configuration, then Instance Pool
+
+---
 class: center, middle, gray
 
 # Demo
@@ -192,13 +238,38 @@ class: center, middle, gray
 
 * Create new instance and show cloud-init section
     * Demo of cloud-init - TODO
+
+```bash
+#cloud-config
+packages:
+  - git
+ 
+write_files:
+  # ioco conf.json
+  - content: |
+      {                                 
+          "--home":     "/u01/app/ioco",          
+          "--nfs-host": "10.10.1.4",    
+          "--export":   "/psftcm.mgmt.new.oraclevcn.com-export"
+      }
+    path: /u01/app/ioco/conf.json      
+ 
+runcmd:
+  # install ioco and attach cm_dpk_files
+  - [ sh, -c, 'git clone https://github.com/psadmin-io/ioco.git /tmp/ioco' ]
+  - [ sh, -c, 'python3 -m pip install /tmp/ioco' ]
+  - [ sh, -c, '/usr/local/bin/ioco cm attach-dpk-files --verbose' ]
+# - [ sh, -c, '/usr/local/bin/python3 -m /tmp/ioco/ioco dpk deploy' ]
+```
+
 * Show Instance Pool status
 * Login to init
-* Delete cookies to show different machinces
+* Delete cookies to show different servers
 * Login to new demo instance show cloud-init results
-    * cloud-init log - TODO
-    * cloud-init scripts - TODO
+    * `sudo tail /var/log/cloud-init.log`
+    * `sudo tail /var/lib/cloud/instance/scripts/runcmd`
     * ioco 
-        * conf
+        * `tail /u01/app/ioco/conf.json`
+        * `tail /u01/app/ioco/logs/ioco.log`
         * cm_dpk_files usage
-        * logs        
+        
