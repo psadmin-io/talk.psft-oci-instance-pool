@@ -13,3 +13,8 @@
     padding-right: 10%;
     padding-left: 10%;
   }
+  
+  .white-links a {
+      color: white;
+      text-decoration: none;
+  }

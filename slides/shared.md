@@ -8,7 +8,7 @@ class: center, middle, white
 
 # Approach to Getting DPK Files
 
-1. TODO - use `ioco` to download or use CM DPK repo
+1. use `ioco` to download or use CM DPK repo
 
 ---
 
@@ -43,7 +43,7 @@ Leverage File Storage Services to use a read-only share for middleware installs
 ???
 
 * For patching, update provisioning with new storage, spin up Pool to use new storage, then terminate old
-   * When terminating from pool, it deletes the oldest first - TODO
+   * When terminating from pool, it deletes the oldest first
 
 ---
 class: center, middle, gray
