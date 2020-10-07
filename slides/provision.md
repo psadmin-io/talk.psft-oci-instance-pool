@@ -14,8 +14,12 @@ To leverage OCI Instance Pools we need some automated provisioning. This is what
 
 1. Fully deploy a Web/App server
 1. Automatically add\remove from Load Balancer
-1. Configure unique values at instance creation
+1. Configure domains
 1. Complete as quickly as possible
+
+???
+
+1. unique values at instance creation
 
 ---
 
@@ -39,6 +43,10 @@ class: center, middle, gray
     * Show details, instance count, config, etc
     * Show work requests
     * Show instances (junk name, better FQDN)
+    * Autoscaling
+* Increment the instance count to 3
+    * image
+    * init
 * Load Balancer
     * Single LB w/ single Public IP
     * Hostnames
@@ -48,9 +56,6 @@ class: center, middle, gray
     * show index.html
     * show hostname, LB cookie
     * Login
-* Increment the instance count to 3
-    * image
-    * init
 
 ---
 class: center, middle, white
@@ -173,7 +178,7 @@ Cloud-init is the industry standard multi-distribution method for cross-platform
 * User data options
    * Cloud Config - `#cloud-config`
    * Shell Script - `#!/bin/bash`
-   * Includ File - `#include`
+   * Include File - `#include`
    * Others...
 ???
 
@@ -191,12 +196,11 @@ A python utility for common tasks related to administering PeopleSoft in the Clo
 
 [github.com/psadmin-io/ioco](https://github.com/psadmin-io/ioco)
 
----
-
-# Examples
-
-* `ioco oci block --make-file-system --mount`
-* `ioco dpk deploy --dpk-type=FSCM`
+```bash
+$ # Examples
+$ ioco oci block --make-file-system --mount
+$ ioco dpk deploy --dpk-type=FSCM
+```
 
 ???
 
@@ -237,7 +241,7 @@ class: center, middle, gray
 ???
 
 * Create new instance and show cloud-init section
-    * Demo of cloud-init - TODO
+    * Demo of cloud-init
 
 ```bash
 #cloud-config

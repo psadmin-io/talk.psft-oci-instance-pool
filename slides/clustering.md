@@ -57,8 +57,6 @@ class: center, middle, white
 
 ???
 
-Quick Poll - How familiar are you with clustering? What type do you use? TODO
-
 ---
 
 # Web->Multi App
@@ -89,6 +87,9 @@ Quick Poll - How familiar are you with clustering? What type do you use? TODO
 
 ???
 
+* Really need to build up health check in load balancer
+* Needs to check that login to app is working
+
 ---
 
 # Stand-alone Web/App
@@ -117,10 +118,17 @@ Quick Poll - How familiar are you with clustering? What type do you use? TODO
 
 * Set `psserver=localhost:9000`
 * Set `<cookie-name>ENVNAME-PORTAL-PSJSESSIONID</cookie-name>`
+* Need a better health check
 
 ## App
 
+* No need to expose JOLT ports 
 * Disable JOLT compression 
     * Set maximum permitted value
         * `[JOLT Listener]\Jolt Compression Threshold=2,147,483,647`
     * Remove `-c` from JSL section of `psappsrv.ubx`
+
+???
+
+* Not easy to make psserver dynamic
+* JSP check

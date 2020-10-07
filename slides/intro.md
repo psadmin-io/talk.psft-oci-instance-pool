@@ -12,6 +12,11 @@ class: center, middle, title
 ![:img swimming, 90%](images/swim.gif)
 
 ---
+class: center, middle, title
+
+![:img swimming, 90%](images/swim.gif)
+
+---
 
 # Agenda
 

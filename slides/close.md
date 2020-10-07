@@ -1,10 +1,20 @@
-class: center, middle
+# Considerations
+
+1. What other config is needed?
+1. How do we know what to ssh into?
+
+---
+class: center, middle, black, white-links
 
 # [psadmin.io/oci](https://psadmin.io/oci)
 
 ---
 
-# Thank you!
+# [psadmin.io/oci](https://psadmin.io/oci)
+
+---
+
+**Session ID** 100740
 
 **Slides** [wiki.psadmin.io/talk.psft-oci-instance-pool](https://wiki.psadmin.io/talk.psft-oci-instance-pool)
 
