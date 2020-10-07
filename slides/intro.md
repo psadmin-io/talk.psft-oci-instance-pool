@@ -6,7 +6,10 @@ Kyle Benson
 
 ![psadmin.io](images/psadmin_io_white.png)
 
-Session ID: **101340**
+---
+class: center, middle, title
+
+![:img swimming, 90%](images/swim.gif)
 
 ---
 class: center, middle, title
